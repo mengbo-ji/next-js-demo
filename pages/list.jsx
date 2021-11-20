@@ -20,8 +20,10 @@ export default function List ({data}) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps(context) {
   const data = await readFile(join(process.cwd(), 'pages', '_app.js'), 'utf-8')
+  console.log('hello')
+  console.log('context', context.query)
   return {
     props: {
       data
